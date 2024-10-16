@@ -48,6 +48,9 @@ export default async function handler(req, res) {
   endpoint += `?url=${urlWithProtocol}&device=${device}`;
   endpoint += '&outputOpts=html,json';
   endpoint += `&urlId=${data[0].id}`;
+  endpoint += `&callbackHost=${process.env.VERCEL_URL}`;
+
+  console.log('Endpoint: ', endpoint);
 
   fetch(endpoint, {
     method: "GET",
