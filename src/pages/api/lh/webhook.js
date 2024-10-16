@@ -10,12 +10,22 @@ export default async function handler(req, res) {
   if (!urlId && !url && !deviceType && !output) {
     res.status(400).json({ message: "Invalid request" });
   }
+  
+  const supabase = createClient({ req, res });
+  const { data, error } = await supabase.from("lh_results").insert([
+    {
+      lh_id: urlId,
+      output,
+    },
+  ]);
 
-  // const supabase = createClient({ req, res });
+  if (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 
-  console.log(urlId, url, deviceType, output);
-
-  res.status(200).json({ message: "Debugging" });
-
-  // const { data, error } = await supabase.from("lh").select();
+  res.status(200).json({
+    message: "Success",
+    data,
+  });
 }
