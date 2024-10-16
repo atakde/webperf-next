@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 
 export default async function handler(req, res) {
+  console.log("Webhook called");
   if (req.method !== "POST") {
     res.status(405).json({ message: "Method Not Allowed" });
   }
