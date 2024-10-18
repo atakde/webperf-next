@@ -25,6 +25,16 @@ export default function Home() {
     });
   }
 
+  const handleUrlChange = url => {
+    const urlWithoutProtocol = url
+      .replace('https://', '')
+      .replace('http://', '');
+    setData({
+      ...data,
+      url: urlWithoutProtocol,
+    });
+  }
+
   const handleSubmit = async () => {
     try {
       setLoading(true);
@@ -93,7 +103,8 @@ export default function Home() {
                       classNames={{
                         base: "max-w-xl",
                       }}
-                      onChange={(e) => handleChange(e.target.value, 'url')}
+                      value={data.url}
+                      onChange={(e) => handleUrlChange(e.target.value)}
                       startContent={
                         <div className="pointer-events-none flex items-center">
                           <span className="text-default-400 text-small">https://</span>
