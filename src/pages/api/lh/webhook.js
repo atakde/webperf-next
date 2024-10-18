@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   const { data, error } = await supabase.from("lh_results").insert([
     {
       lh_id: urlId,
-      output,
+      html,
     },
   ]);
 
