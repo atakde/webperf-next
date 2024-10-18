@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       url,
       device,
       region,
-      outputOpts: 'html,json'
+      output_options: 'html'
     },
   ]).select();
 
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
   }
 
   endpoint += `?url=${urlWithProtocol}&device=${device}`;
-  endpoint += '&outputOpts=html,json';
+  endpoint += '&outputOpts=html';
   endpoint += `&urlId=${data[0].id}`;
   endpoint += `&callbackHost=${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
 
