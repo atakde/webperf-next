@@ -10,12 +10,12 @@ export default async function handler(req, res) {
   if (!urlId && !url && !deviceType && !output) {
     res.status(400).json({ message: "Invalid request" });
   }
-  
+
   const supabase = createClient({ req, res });
   const { data, error } = await supabase.from("lh_results").insert([
     {
       lh_id: urlId,
-      html,
+      html: output,
     },
   ]);
 
