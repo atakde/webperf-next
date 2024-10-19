@@ -4,9 +4,11 @@ import { Button } from "@nextui-org/button";
 import GlobalOutlined from '@ant-design/icons/GlobalOutlined';
 import DesktopOutlined from '@ant-design/icons/DesktopOutlined';
 import MobileOutlined from '@ant-design/icons/MobileOutlined';
-import { REGIONS, DEVICES } from "@/constants";
+import { REGIONS, DEVICES, MARKER_POSITIONS } from "@/constants";
 import Header from "@/components/Header";
 import { useRouter } from "next/router";
+import ImageWithMarkers from "@/components/MarkedImage/MarkedImage";
+import MarkedImage from "@/components/MarkedImage/MarkedImage";
 
 export default function Home() {
   const router = useRouter();
@@ -222,7 +224,19 @@ export default function Home() {
             className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
           />
         </div>
-      </div>
-    </>
-  );
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-gray-900">Supported Regions</h2>
+          <p className="mt-4 text-lg text-gray-600">
+            We support the following regions for testing your website
+          </p>
+        </div>
+        <div className="flex items-center justify-center mt-16 -mx-8 sm:-mx-0">
+          <MarkedImage
+            imageUrl="/world.png"
+            initialMarkers={MARKER_POSITIONS}
+          />
+        </div>
+        </div>
+      </>
+      );
 }

@@ -30,4 +30,11 @@ const DEVICES = [
   },
 ];
 
-export { REGIONS, DEVICES };
+const MARKER_POSITIONS = [
+  { xPercent: 27.5, yPercent: 35.2 },  // N. Virginia
+  { xPercent: 51.42, yPercent: 31.0 },  // Frankfurt
+  { xPercent: 70.22, yPercent: 49.44 },  // Mumbai
+  { xPercent: 53, yPercent: 25 }   // Stockholm
+];
+
+export { REGIONS, DEVICES, MARKER_POSITIONS };
