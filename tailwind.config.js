@@ -8,6 +8,8 @@ module.exports = {
     "./node_modules/@nextui-org/theme/dist/components/button.js",
     "./node_modules/@nextui-org/theme/dist/components/input.js",
     "./node_modules/@nextui-org/theme/dist/components/select.js",
+    "./node_modules/@nextui-org/theme/dist/components/progress.js",
+    "./node_modules/@nextui-org/theme/dist/components/spinner.js",
   ],
   theme: {
     extend: {

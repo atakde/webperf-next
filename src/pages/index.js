@@ -6,10 +6,10 @@ import DesktopOutlined from '@ant-design/icons/DesktopOutlined';
 import MobileOutlined from '@ant-design/icons/MobileOutlined';
 import { REGIONS, DEVICES } from "@/constants";
 import Header from "@/components/Header";
+import { useRouter } from "next/router";
 
 export default function Home() {
-  // const navigate = useNavigate();
-  const [result, setResult] = useState(null);
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     url: '',
@@ -50,7 +50,9 @@ export default function Home() {
         throw new Error(response.statusText);
       }
       const result = await response.json();
-      setResult(result);
+      if (result?.data?.id) {
+        router.push(`/lh/${result.data.id}`);
+      }
     }
     catch (error) {
       console.error(error);
