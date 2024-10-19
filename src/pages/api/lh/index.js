@@ -30,13 +30,16 @@ export default async function handler(req, res) {
 
   const urlWithProtocol = url.startsWith('https') ? url : `https://${url}`;
   const supabase = createClient({ req, res });
+  
+  const ipAdress = req?.ip;
 
   const { data, error } = await supabase.from("lh").insert([
     {
       url,
       device,
       region,
-      output_options: 'html'
+      ip: ipAdress,
+      output_options: 'html',
     },
   ]).select();
 
