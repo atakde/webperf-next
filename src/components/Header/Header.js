@@ -20,7 +20,7 @@ export default function Header() {
               <img
                 alt=""
                 src="/logo.png"
-                className="h-8 w-auto"
+                className="h-12 w-auto"
               />
             </a>
           </div>
